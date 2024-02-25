@@ -8,6 +8,7 @@ const session = require("express-session");
 const mongoose = require("mongoose");
 const flash = require("connect-flash");
 
+
 mongoose.connect("mongodb://127.0.0.1:27017/week6");
 const app = express();
 
@@ -15,6 +16,8 @@ const app = express();
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
+
+app.use(nocache())
 app.use(
   session({
     secret: "sdsdsd",
