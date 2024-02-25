@@ -1,0 +1,22 @@
+{
+  "name": "week6",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./app.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "express-session": "^1.18.0",
+    "http-errors": "~1.6.3",
+    "mongoose": "^8.2.0",
+    "morgan": "~1.9.1",
+    "nocache": "^4.0.0",
+    "session": "^0.1.0"
+  }
+}
