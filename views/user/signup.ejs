@@ -3,21 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        form {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 300px;
+        }
+        h2 {
+            margin-top: 0;
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: calc(100% - 22px);
+            outline: none;
+        }
+        button[type="submit"] {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .error-msg {
+            color: red;
+            text-align: center;
+            margin-top: 10px;
+        }
+        .login-link {
+            text-align: center;
+            margin-top: 15px;
+        }
+        .login-link a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .login-link a:hover {
+            color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <form action="/signup" method="post">
-        <label for="">name</label>
-        <input type="text" name="name" placeholder="name">
-        <br>
-        <label for="">email</label>
-        <input type="email" name="email" placeholder="email">
-        <br>
-        <label for="">password</label>
-        <input type="password" name="password" placeholder="password">
-        <button type="submit">Login</button>
-         <p style="color: red;"><%=locals.messege %></p>
-         <a href="/login">Sign Up</a>
+        <h2>Sign Up</h2>
+        <label for="name">Name</label>
+        <input type="text" name="name" placeholder="Enter your name" required>
+        <label for="email">Email</label>
+        <input type="email" name="email" placeholder="Enter your email" required>
+        <label for="password">Password</label>
+        <input type="password" name="password" placeholder="Enter your password" required>
+        <button type="submit">Sign Up</button>
+        <p class="error-msg"><%= locals.message %></p>
+        <div class="login-link">
+            Already have an account? <a href="/login">Login</a>
+        </div>
     </form>
 </body>
+<script src="/javascripts/base.js"></script>
 </html>

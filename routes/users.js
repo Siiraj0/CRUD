@@ -11,6 +11,6 @@ router.get('/login',usermiddleware.userundenkil,user.userLogin );
 router.get('/signup',usermiddleware.userundenkil,user.signup)
 router.post('/signup',user.getinsignup)
 router.post('/login',user.getinlogin)
-router.get('/home',usermiddleware.nouser,user.home)
+router.get('/home',usermiddleware.nouser,usermiddleware.userDel,user.home)
 router.post('/Logout',user.Logout)
 module.exports = router;

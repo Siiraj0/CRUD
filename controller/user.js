@@ -49,8 +49,14 @@ const getinlogin = async (req, res) => {
     const pass= await bycrypt.compare(req.body.password,data.password)
 
       if (pass) {
-        req.session.user=data._id
-        res.redirect('/home')
+        if(data.isadmin){
+          req.session.admin=data._id
+          res.redirect('/admin')
+        }else{
+          req.session.user=data._id
+          res.redirect('/home')
+          
+        }
       } else {
         req.flash('msg','password wrong')
         res.redirect("/login");
@@ -70,10 +76,12 @@ const home=async(req,res)=>{
   res.render('user/home',{user})
 }
 
+//logOut
 const Logout=(req,res)=>{
   req.session.destroy()
   res.redirect('/login')
 }
+
 
 
 //exporting

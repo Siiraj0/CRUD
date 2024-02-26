@@ -1,9 +1,13 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const admin=require('../controller/admin')
+const adminmiddleware=require('../middleware/admin')
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+router.get('/',adminmiddleware,admin.admin);
+router.get('/delete/:id',adminmiddleware,admin.delet)
+router.post('/create',admin.create)
+router.post('/edit/:id',admin.edit)
+router.get('/search/',admin.search)
 
 module.exports = router;
